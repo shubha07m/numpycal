@@ -7,6 +7,7 @@ import re
 import numpy as np
 import drills
 from examples import EXAMPLES
+from shapes import broadcast_shape, matmul_shape, predict_shape
 
 MAX_ELEMENTS = 4096
 MAX_WORK = 1_000_000
@@ -82,7 +83,8 @@ def packed(value):
         raise ValueError('Non-finite result. Scale the input or check division/log domains.')
     return dict(result=np.array2string(arr, precision=7, threshold=MAX_ELEMENTS, max_line_width=88),
                 shape=str(arr.shape), dtype=str(arr.dtype), data=arr.tolist(),
-                literal=json.dumps(arr.tolist(), allow_nan=False), ndim=arr.ndim)
+                literal=json.dumps(arr.tolist(), allow_nan=False), ndim=arr.ndim,
+                dimensions=list(arr.shape))
 
 
 def axis_value(params):
@@ -104,9 +106,24 @@ def source_call(fn, args):
     return 'import numpy as np\n\n' + inspect.getsource(fn) + '\nresult = ' + fn.__name__ + '(' + args + ')'
 
 
+def python_copy(expression, A, B, result):
+    """A standalone snippet, including the exact inputs used for this result."""
+    inputs = f'A = np.array({A.tolist()!r}, dtype={str(A.dtype)!r})\n'
+    if B is not None:
+        inputs += f'B = np.array({B.tolist()!r}, dtype={str(B.dtype)!r})\n'
+    body = expression.removeprefix('import numpy as np\n\n')
+    if isinstance(ast.parse(body).body[-1], ast.Expr):
+        lines = body.splitlines()
+        lines[-1] = 'result = ' + lines[-1]
+        body = '\n'.join(lines)
+    return ('import numpy as np\n\n' + inputs + '\n' + body +
+            f'\n\n# shape {result["shape"]} · dtype {result["dtype"]}\nprint(result)\n')
+
+
 def calculate(op, A, B=None, params=None):
     if op not in OPERATIONS: raise ValueError('Choose an operation from the deck.')
     params = params or {}
+    input_A, input_B = A, B
     spec = OPERATIONS[op]
     axis = axis_value(params) if 'axis' in spec['params'] else None
     keep = params.get('keepdims', False) is True
@@ -163,10 +180,11 @@ def calculate(op, A, B=None, params=None):
             result = np.minimum(np.maximum(A,lo),hi); expression = f'np.minimum(np.maximum(A, {lo!r}), {hi!r})'
         elif op == 'sort': result = np.sort(A,axis=axis); expression = f'np.sort(A, axis={axis!r})'
         elif op in ('add','subtract','multiply','divide'):
-            if math.prod(np.broadcast_shapes(A.shape,B.shape)) > MAX_ELEMENTS: raise ValueError('Broadcast result exceeds 4096 elements.')
+            if math.prod(broadcast_shape(A.shape,B.shape)) > MAX_ELEMENTS: raise ValueError('Broadcast result exceeds 4096 elements.')
             result = getattr(np,op)(A,B)
             expression = f'A {dict(add="+",subtract="-",multiply="*",divide="/")[op]} B'
         elif op == 'matmul':
+            matmul_shape(A.shape, B.shape)
             if A.ndim > 2 or B.ndim > 2: raise ValueError('Matmul on this bench takes vectors or 2D matrices.')
             if A.size * B.size > MAX_WORK: raise ValueError('Try smaller matrices for this bench.')
             result = A @ B; expression = 'A @ B'
@@ -205,7 +223,15 @@ def calculate(op, A, B=None, params=None):
             result=np.lib.stride_tricks.sliding_window_view(A,B.shape)[::stride,::stride]
             expression=f'np.lib.stride_tricks.sliding_window_view(A, B.shape)[::{stride}, ::{stride}]'
     expression = 'import numpy as np\n\n' + prefix + expression.removeprefix('import numpy as np\n\n')
-    return {**packed(result), 'expression':expression,'note':note,'steps':steps,'operation':op}
+    response = {**packed(result), 'expression':expression,'note':note,'steps':steps,'operation':op}
+    try:
+        response['explanation'] = predict_shape(op, input_A, input_B, params)['explanation']
+    except ValueError:
+        response['explanation'] = f'This operation maps A{input_A.shape} to {np.shape(result)}.'
+    if op == 'unique':
+        response['explanation'] = f'There are {np.size(result)} distinct values, so unique returns a vector of length {np.size(result)}.'
+    response['python_code'] = python_copy(expression, input_A, input_B, response)
+    return response
 
 
 def validate_windows(A,B,padding,stride):
@@ -230,4 +256,15 @@ def run_example(example_id):
     expression = source_call(fn,args)
     if example_id == 'logistic':
         expression = expression.replace('result = logistic_regression(', 'weights, cost = logistic_regression(') + '\nresult = weights'
-    return {**packed(result),'expression':expression,'note':note,'steps':[], 'operation':example_id,'fixture':dict(A=e['A'],B=e['B'])}
+    explanations = {
+        'linear_gd': 'One weight per feature column, kept as a column vector for A @ weights.',
+        'logistic': 'One weight per feature column. The weighted cost is a scalar, shown in the note.',
+        'knn': 'One majority-vote class label is returned per query row in A.',
+        'gini': 'All class proportions combine into one scalar impurity.',
+        'stump': 'The three entries are feature index, split threshold, and weighted impurity.',
+        'cross_entropy': 'Pick one log-probability per row, then average the batch into a scalar loss.',
+        'tensor_puzzle': 'Broadcast point pairs to (N, K, D), then sum the feature axis to get (N, K).',
+    }
+    response = {**packed(result),'expression':expression,'note':note,'steps':[], 'operation':example_id,'fixture':dict(A=e['A'],B=e['B']), 'explanation':explanations[example_id]}
+    response['python_code'] = python_copy(expression, A, B, response)
+    return response

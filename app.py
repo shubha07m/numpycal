@@ -6,9 +6,10 @@ import argparse
 from flask import Flask, jsonify, request, render_template_string
 from werkzeug.exceptions import HTTPException
 import numpy as np
-from drills import public_drills, DRILLS
+from drills import public_patterns, PATTERNS
 from examples import public_examples
 from engine import GROUPS, OPERATIONS, parse_array, packed, calculate, run_example
+from shapes import predict_shape
 
 app = Flask(__name__, static_folder=None)
 app.config.update(MAX_CONTENT_LENGTH=256_000)
@@ -26,7 +27,7 @@ def local_headers(response):
 def index():
     return render_template_string(Path(__file__).with_name('ui.html').read_text(),
         groups=[dict(title=title,ops=[OPERATIONS[r[0]] for r in rows]) for title,rows in GROUPS],
-        operations=OPERATIONS,drills=public_drills(),examples=public_examples())
+        operations=OPERATIONS,patterns=public_patterns(),examples=public_examples())
 
 
 @app.post('/api/parse')
@@ -41,6 +42,7 @@ def payload():
     return p
 
 
+@app.post('/api/predict')
 @app.post('/api/run')
 def run():
     p=payload(); op=p.get('operation')
@@ -49,13 +51,15 @@ def run():
     B=parse_array(p.get('B'),p.get('modeB','auto')) if OPERATIONS[op]['binary'] else None
     params=p.get('params',{})
     if not isinstance(params,dict): raise ValueError('Parameters must be an object.')
+    if request.path == '/api/predict':
+        return jsonify(predict_shape(op,A,B,params))
     return jsonify(calculate(op,A,B,params))
 
 
-@app.post('/api/drill')
-def drill():
-    p=payload(); d=next((d for d in DRILLS if d['id']==p.get('id')),None)
-    if d is None: raise ValueError('Unknown drill.')
+@app.post('/api/pattern')
+def pattern():
+    p=payload(); d=next((d for d in PATTERNS if d['id']==p.get('id')),None)
+    if d is None: raise ValueError('Unknown pattern.')
     result=calculate(d['id'],np.array(d['A']),np.array(d['B']) if OPERATIONS[d['id']]['binary'] else None,d['params'])
     result.update(fixture=dict(A=d['A'],B=d['B']),params=d['params'],steps=d['steps'],note=d['note'])
     return jsonify(result)

@@ -1,4 +1,4 @@
-"""Runnable interview examples; training loops are over steps, never samples."""
+"""Runnable learning examples; training loops are over steps, never samples."""
 import inspect
 import numpy as np
 
@@ -76,13 +76,13 @@ def tensor_puzzle(A, B):
 
 
 EXAMPLES = [
- dict(id='linear_gd',title='Linear Regression · gradient descent',function=linear_regression,A=[[1,0],[1,1],[1,2],[1,3]],B=[1,3,5,7],note='1000 vectorized updates. Result: intercept and slope. Compare with least squares; check loss convergence.'),
- dict(id='logistic',title='Logistic Regression · custom cost',function=logistic_regression,A=[[1,-2],[1,-1],[1,1],[1,2]],B=[0,0,1,1],note='Positive examples get 2× weight. Stable logaddexp cost. Hold out validation data to detect overfitting.'),
- dict(id='knn',title='KNN · vectorized majority vote',function=knn,A=[[0,0],[9,9]],B=[[0,0],[1,0],[0,1],[8,9],[9,8],[9,9]],note='k=3; training labels = [0,0,0,1,1,1]. Squared Euclidean distance. First class wins vote ties.'),
- dict(id='gini',title='Decision Tree · Gini impurity',function=gini,A=[0,0,1,1],B=[0],note='Pure node → 0. Balanced binary node → 0.5. Weight child impurities to choose a split.'),
- dict(id='stump',title='Decision Tree · best Gini split',function=decision_stump,A=[[0],[1],[3],[4]],B=[0,0,1,1],note='Returns [feature index, threshold, weighted impurity]. Depth-one tree; limiting depth helps curb overfitting.'),
- dict(id='cross_entropy',title='Softmax + Cross-Entropy',function=cross_entropy,A=[[1000,1001,1002],[-1000,-1000,-1000]],B=[2,0],note='Subtract max → exp → sum → log → select labels → mean. Stable even when the true-class probability underflows.'),
- dict(id='tensor_puzzle',title='Tensor puzzle · all pairs',function=tensor_puzzle,A=[[0,0],[2,2],[8,9]],B=[[0,1],[9,9]],note='Predict (3, 2). Expand both arrays, subtract, square, then reduce the feature dimension.'),
+ dict(id='linear_gd',title='Fit a line · gradient descent',function=linear_regression,A=[[1,0],[1,1],[1,2],[1,3]],B=[1,3,5,7],note='1000 vectorized updates. Result: intercept and slope. Compare with least squares; check loss convergence.'),
+ dict(id='logistic',title='Binary classification · weighted cost',function=logistic_regression,A=[[1,-2],[1,-1],[1,1],[1,2]],B=[0,0,1,1],note='Positive examples get 2× weight. Stable logaddexp cost. Hold out validation data to detect overfitting.'),
+ dict(id='knn',title='Nearest neighbors · majority vote',function=knn,A=[[0,0],[9,9]],B=[[0,0],[1,0],[0,1],[8,9],[9,8],[9,9]],note='k=3; training labels = [0,0,0,1,1,1]. Squared Euclidean distance. First class wins vote ties.'),
+ dict(id='gini',title='Measure a mix · Gini impurity',function=gini,A=[0,0,1,1],B=[0],note='Pure node → 0. Balanced binary node → 0.5. Weight child impurities to choose a split.'),
+ dict(id='stump',title='Decision stump · best split',function=decision_stump,A=[[0],[1],[3],[4]],B=[0,0,1,1],note='Returns [feature index, threshold, weighted impurity]. Depth-one tree; limiting depth helps curb overfitting.'),
+ dict(id='cross_entropy',title='Class probabilities · cross-entropy',function=cross_entropy,A=[[1000,1001,1002],[-1000,-1000,-1000]],B=[2,0],note='Subtract max → exp → sum → log → select labels → mean. Stable even when the true-class probability underflows.'),
+ dict(id='tensor_puzzle',title='All-pairs distances · broadcasting',function=tensor_puzzle,A=[[0,0],[2,2],[8,9]],B=[[0,1],[9,9]],note='Predict (3, 2). Expand both arrays, subtract, square, then reduce the feature dimension.'),
 ]
 
 

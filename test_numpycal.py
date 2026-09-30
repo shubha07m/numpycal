@@ -114,10 +114,10 @@ class Bench(unittest.TestCase):
                 self.assertEqual(response.status_code,400); self.assertIn('error',response.json)
         self.assertEqual(self.client.get('/').status_code,200)
 
-    def test_all_drills_and_examples(self):
-        self.assertEqual(len(drills.DRILLS),5)
-        for d in drills.DRILLS:
-            response=self.client.post('/api/drill',json={'id':d['id']})
+    def test_all_patterns_and_examples(self):
+        self.assertEqual(len(drills.PATTERNS),5)
+        for d in drills.PATTERNS:
+            response=self.client.post('/api/pattern',json={'id':d['id']})
             self.assertEqual(response.status_code,200,response.json)
             self.assertTrue(response.json['steps'])
         for e in examples.EXAMPLES:
@@ -126,8 +126,8 @@ class Bench(unittest.TestCase):
 
     def test_displayed_expressions_reproduce_results(self):
         # Only execute trusted app-generated reference code, never user inputs.
-        for d in drills.DRILLS:
-            r=self.client.post('/api/drill',json={'id':d['id']}).json
+        for d in drills.PATTERNS:
+            r=self.client.post('/api/pattern',json={'id':d['id']}).json
             namespace={'A':np.array(d['A']), 'B':np.array(d['B'])}
             exec(r['expression'],namespace)
             assert_allclose(namespace['result'],r['data'])
@@ -149,7 +149,7 @@ class Bench(unittest.TestCase):
                 exec(compile(tree,'<reference>','exec'),namespace)
                 assert_allclose(namespace['result'],r['data'])
     def test_invalid_json_and_unknown_operation(self):
-        for path in ['/api/run','/api/parse','/api/drill','/api/example']:
+        for path in ['/api/run','/api/parse','/api/pattern','/api/example']:
             self.assertEqual(self.client.post(path,json=[]).status_code,400)
         self.assertEqual(self.client.post('/api/run',json={'operation':'eval'}).status_code,400)
         self.assertEqual(self.client.post('/api/parse',data='x'*300000,content_type='application/json').status_code,413)
@@ -162,4 +162,75 @@ class Bench(unittest.TestCase):
         self.assertIn("connect-src 'self'",self.client.get('/').headers['Content-Security-Policy'])
 
 
-if __name__=='__main__': unittest.main()
+
+
+class ShapePreview(unittest.TestCase):
+    def setUp(self):
+        self.client = app.test_client()
+
+    def test_preview_rules_match_actual_shapes(self):
+        from shapes import predict_shape
+        A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 10]])
+        for op in OPERATIONS:
+            with self.subTest(op=op):
+                a = np.ones((1, 3)) if op == 'squeeze' else A
+                b = np.array([1, 2, 3]) if op == 'least_squares' else A
+                params = dict(axis='0', reshape_to='1,9', padding=1, stride=2)
+                prediction = predict_shape(op, a, b, params)
+                result = calculate(op, a, b if OPERATIONS[op]['binary'] else None, params)
+                if op == 'unique':
+                    self.assertIsNone(prediction['shape'])
+                else:
+                    self.assertEqual(prediction['shape'], result['dimensions'])
+                self.assertTrue(result['explanation'])
+
+    def test_broadcasting_matmul_and_reduction_shapes(self):
+        from shapes import predict_shape
+        for a, b in [((3, 3), (3, 1)), ((2, 1, 3), (4, 3)), ((), (3,)), ((3,), (3, 1))]:
+            with self.subTest(a=a, b=b):
+                p = predict_shape('add', np.ones(a), np.ones(b))
+                self.assertEqual(p['shape'], list((np.ones(a) + np.ones(b)).shape))
+                self.assertIn('via broadcasting', p['hint'])
+        for a, b in [((3,), (3,)), ((2, 3), (3,)), ((3,), (3, 2)), ((2, 3), (3, 4))]:
+            self.assertEqual(predict_shape('matmul', np.ones(a), np.ones(b))['shape'], list((np.ones(a) @ np.ones(b)).shape))
+        for axis in ['None', '0', '1', '-1', '-2,-1']:
+            for keep in [False, True]:
+                params = dict(axis=axis, keepdims=keep)
+                p = predict_shape('sum', np.ones((2, 3, 4)), params=params)
+                self.assertEqual(p['shape'], calculate('sum', np.ones((2, 3, 4)), params=params)['dimensions'])
+
+    def test_previews_do_not_calculate(self):
+        from unittest.mock import patch
+        with patch('app.calculate', side_effect=AssertionError('preview called calculation')):
+            response = self.client.post('/api/predict', json=dict(operation='inverse', A='[[1,1],[1,1]]'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json['shape'], [2, 2])  # Shape is valid even if the matrix is singular.
+
+    def test_friendly_alignment_errors(self):
+        for path in ['/api/run', '/api/predict']:
+            response = self.client.post(path, json=dict(operation='add', A='[[1,2,3],[4,5,6],[7,8,9]]', B='[[1,2,3],[4,5,6]]'))
+            self.assertEqual(response.status_code, 400)
+            self.assertIn("Shapes (3,3) and (2,3) don't align", response.json['error'])
+            self.assertIn('transpose or reshape', response.json['error'])
+        response = self.client.post('/api/predict', json=dict(operation='matmul', A='[[1,2,3]]', B='[[1,2]]'))
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('inner', response.json['error'].replace('last axis of A must match the first axis of B', 'inner'))
+
+    def test_python_copies_are_standalone(self):
+        from contextlib import redirect_stdout
+        from io import StringIO
+        cases = [('/api/pattern', dict(id=p['id'])) for p in drills.PATTERNS]
+        cases += [('/api/example', dict(id=e['id'])) for e in examples.EXAMPLES]
+        cases += [('/api/run', dict(operation='transpose', A='[[1,2],[3,4]]'))]
+        for path, payload in cases:
+            with self.subTest(path=path, payload=payload):
+                result = self.client.post(path, json=payload).json
+                namespace = {}
+                with redirect_stdout(StringIO()):
+                    exec(result['python_code'], namespace)
+                assert_allclose(namespace['result'], result['data'])
+                self.assertIn('# shape ' + result['shape'], result['python_code'])
+                assert_allclose(json.loads(result['literal']), result['data'])
+
+
+if __name__ == "__main__": unittest.main()
