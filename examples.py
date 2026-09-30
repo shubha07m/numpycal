@@ -1,4 +1,4 @@
-"""Runnable interview examples; training loops are over steps, never samples."""
+"""Runnable learning examples; training loops are over steps, never samples."""
 import inspect
 import numpy as np
 

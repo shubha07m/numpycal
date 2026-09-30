@@ -13,7 +13,7 @@
 </style>
 </head><body><main class="page">
 <div class="brandline"><div class="brand"><b>n</b>numpycal<span style="color:var(--blue)">.</span></div><span class="pill">NumPy + you. That's the stack.</span></div>
-<header class="card hero"><div class="eyebrow">Interactive interview practice</div><h1>Make array shapes<br><span>feel obvious.</span></h1><p>Edit an array, tap a NumPy operation, and see result, shape, dtype, and exact expression together.</p><div class="pill status"><span class="dot"></span><span id="status">Ready · instant local engine</span></div></header>
+<header class="card hero"><div class="eyebrow">Interactive array playground</div><h1>Make array shapes<br><span>feel obvious.</span></h1><p>Edit an array, tap a NumPy operation, and see result, shape, dtype, and exact expression together.</p><div class="pill status"><span class="dot"></span><span id="status">Ready · instant local engine</span></div></header>
 <nav class="card tabs" role="tablist" aria-label="Practice mode"><button class="tab" id="tab-calculator" role="tab" aria-selected="true" aria-controls="calculator">Calculator</button><button class="tab" id="tab-drills" role="tab" aria-selected="false" aria-controls="drills" tabindex="-1">5 ML drills</button></nav>
 <section id="calculator" role="tabpanel" aria-labelledby="tab-calculator">
 <div class="workspace"><div class="leftcol">
@@ -40,12 +40,12 @@
 <div class="group-title">{{group.title}}</div><div class="op-grid">{% for op in group.ops %}<button class="op" data-op="{{op.id}}" aria-label="{{op.label}}: {{op.hint}}"><span class="op-icon" aria-hidden="true">{{op.icon}}</span><strong>{{op.label}}</strong><small>{{op.hint}}</small></button>{% endfor %}</div>
 {% if group.title=='EXTRA LEGO BLOCKS' %}</details>{% endif %}
 {% endfor %}
-<p class="hint"><b>Shape first:</b> predict the output shape before tapping. That habit catches most NumPy interview bugs.</p></div></section></div>
-<section class="card example-shelf"><h2>Interview example shelf</h2><p>Small, runnable answers to the rest of the Waymo practice sheet.</p>{% for e in examples %}<div class="example-row"><div class="example-top"><strong>{{e.title}}</strong><button class="action" data-example="{{e.id}}">Load + run ↗</button></div><details><summary>Reveal reference</summary><p>{{e.note}}</p><pre class="reference">{{e.code}}</pre></details></div>{% endfor %}</section>
+<p class="hint"><b>Shape first:</b> predict it before you tap it.</p></div></section></div>
+<section class="card example-shelf"><h2>Pattern Library</h2><p>Small blocks. Useful models. All yours to explore.</p>{% for e in examples %}<div class="example-row"><div class="example-top"><strong>{{e.title}}</strong><button class="action" data-example="{{e.id}}">Load + run ↗</button></div><details><summary>Reveal reference</summary><p>{{e.note}}</p><pre class="reference">{{e.code}}</pre></details></div>{% endfor %}</section>
 </section>
-<section id="drills" role="tabpanel" aria-labelledby="tab-drills" hidden><header class="card drill-intro"><h2>Five patterns interviewers reuse.</h2><p>Each drill is intentionally small. Load its fixture into the calculator, predict the shape, then run the reference solution when you are ready.</p><div class="mono">5 drills · 0 hidden dependencies</div></header><div class="drill-list">
+<section id="drills" role="tabpanel" aria-labelledby="tab-drills" hidden><header class="card drill-intro"><h2>Five patterns. Plenty of possibilities.</h2><p>Each drill is intentionally small. Load its fixture into the calculator, predict the shape, then run the reference solution when you are ready.</p><div class="mono">5 drills · 0 hidden dependencies</div></header><div class="drill-list">
 {% for d in drills %}<article class="card drill-card"><div class="number">0{{loop.index}}</div><div><h3>{{d.title}}</h3><p>{{d.description}}</p><div class="tags pills">{% for tag in d.tags %}<span class="pill">{{tag}}</span>{% endfor %}</div><div class="pills"><button class="action" data-reveal="{{d.id}}" aria-expanded="false" aria-controls="ref-{{d.id}}">Reveal</button><button class="action dark" data-drill="{{d.id}}">Load + run ↗</button></div><div id="ref-{{d.id}}" hidden><pre class="reference">{{d.code}}</pre><p>{{d.note}}</p><button class="mini" data-load="{{d.id}}">Load fixture only · predict first</button></div></div></article>{% endfor %}</div></section>
-<footer class="footer"><span>Built from little blocks. Ready for big questions.</span><span>100% local · NumPy + Flask · no accounts, no cloud</span></footer>
+<footer class="footer"><span>No cloud, no tracking. Just you and NumPy.</span><span>100% local · NumPy + Flask · no accounts, no cloud</span></footer>
 </main><div class="toast" id="toast" role="status" hidden></div>
 <script>
 'use strict';

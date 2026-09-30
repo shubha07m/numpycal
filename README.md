@@ -1,6 +1,6 @@
 # numpycal
 
-An offline NumPy calculator and ML lego bench for interview practice. Pastel cards, honest shapes, real NumPy. Built against the supplied six screenshots and the two-page Waymo ML Coding & Problem Solving preparation PDF.
+An offline NumPy calculator that makes shapes obvious. Pastel cards, real NumPy, zero cloud.
 
 ## Setup and run
 
@@ -42,7 +42,7 @@ If port 8765 is occupied, stop the previous instance before starting another. No
 
 The five drills are standardization, stable softmax, nearest center, least squares, and convolution. Extra lego buttons expose subtract, divide, square, exp, log, argmin, safe scale, zero padding, and sliding windows, so the drill internals can be assembled on the bench. For convolution, pad A → use as A → windows (B supplies kernel shape) → use as A → multiply B → use as A → sum over the last two axes. Set the stride on windows and leave keepdims unchecked.
 
-The **Interview example shelf** has runnable reference fixtures for all remaining required practice questions: linear regression gradient descent, logistic regression with a custom class-weighted cost, vectorized KNN voting, Gini impurity, a decision stump choosing the best Gini split, stable softmax cross-entropy, and all-pairs broadcasting. These examples deliberately run their labeled fixtures; the calculator operations run your edited bench inputs. The tree example is a depth-one classifier split, not a full recursive tree.
+The **Pattern Library** has runnable reference fixtures for learning with small models: linear regression gradient descent, logistic regression with a custom class-weighted cost, vectorized KNN voting, Gini impurity, a decision stump choosing the best Gini split, stable softmax cross-entropy, and all-pairs broadcasting. These examples deliberately run their labeled fixtures; the calculator operations run your edited bench inputs. The tree example is a depth-one classifier split, not a full recursive tree.
 
 ## Numerical choices and limits
 
@@ -55,7 +55,6 @@ The **Interview example shelf** has runnable reference fixtures for all remainin
 - Shape-only operations preserve dtype. Arithmetic and ML operations explicitly cast to float64, shown in the expression, to avoid silent integer overflow. Display rounds to seven decimal places; result reuse retains full numeric precision.
 - Finite real numeric literals only; input is never executed as Python code. Up to 4096 values and 6 dimensions per array/result. Larger pairwise/window intermediates are bounded. Matmul accepts vectors and 2D matrices. Invalid shapes, singular inverse, overflow, log-domain errors, and division by zero produce readable errors without stopping the app.
 
-The PDF also lists K-Means, PCA, neural networks, RNN/LSTM, pooling, sampling, and optimizers as study topics. This app focuses on the requested five drills and seven practice-question families; it is not an exhaustive implementation of every listed topic.
 
 ## Verify offline
 
@@ -81,7 +80,7 @@ It exercises desktop/mobile UI flows and checks for remote page requests. Screen
 - `ui.html`: the entire inline vanilla HTML/CSS/JS interface.
 - `engine.py`: literal parser, bounded operation deck, NumPy execution.
 - `drills.py`: the five reference solutions and fixtures.
-- `examples.py`: additional Waymo practice examples.
+- `examples.py`: additional learning examples.
 - `environment.yml`, `setup.sh`: isolated Python environment setup.
 - `test_numpycal.py`, `scripts/browser_smoke.mjs`: offline verification.
 - `static/`: reserved; all current assets are inline.
