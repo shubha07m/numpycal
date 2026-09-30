@@ -6,15 +6,21 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b0dfff'/%3E%3Ctext x='12' y='47' font-size='42' font-family='monospace'%3En%3C/text%3E%3C/svg%3E">
 <style>
 :root{--ink:#111318;--blue:#1956d8;--sky:#acdfff;--mint:#a2efce;--pink:#ffb7d3;--yellow:#ffdc61;--paper:#fff8cf;--muted:#5e626b;--coral:#ff6c4d;--lime:#cff442;--line:3px solid var(--ink)}
-*{box-sizing:border-box}body{margin:0;background-color:#f3f5f6;background-image:linear-gradient(#dce0e3 1px,transparent 1px),linear-gradient(90deg,#dce0e3 1px,transparent 1px);background-size:32px 32px;color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:15px}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:4px}button{transition:transform .12s,box-shadow .12s}button:hover:not(:disabled){transform:translateY(-2px)}button:active:not(:disabled){transform:translateY(1px)}[hidden]{display:none!important}h1,h2,h3,p{margin:0}h2{font-size:24px;letter-spacing:-.7px}h3{font-size:19px}pre,code,.mono,.pill,.eyebrow{font-family:Menlo,Monaco,Consolas,monospace}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;margin:0}small{color:var(--muted)}.page{max-width:1240px;margin:auto;padding:24px 28px 45px}.brandline{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{font-size:25px;letter-spacing:-1.3px;font-weight:900}.brand b{display:inline-block;color:var(--blue);background:var(--sky);border:var(--line);border-radius:9px;padding:1px 8px;transform:rotate(-5deg);margin-right:8px}.pill{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:2px solid var(--ink);border-radius:30px;font-size:11px;background:white}.dot{width:9px;height:9px;border-radius:100%;background:var(--lime);box-shadow:0 0 0 4px #cff44230}.card{background:white;border:var(--line);border-radius:24px;box-shadow:6px 7px 0 var(--ink);overflow:hidden}.hero{padding:30px 34px;margin-bottom:24px;position:relative}.eyebrow{color:var(--blue);font-size:12px;font-weight:bold;letter-spacing:.7px;display:flex;gap:12px;align-items:center}.eyebrow:before{content:'';width:29px;height:9px;background:var(--coral);border-radius:50%;transform:rotate(-8deg)}h1{font-size:clamp(36px,4.9vw,62px);line-height:1.06;letter-spacing:-2.7px;margin:16px 0 21px;max-width:770px}h1 span{position:relative;isolation:isolate;white-space:nowrap}h1 span:after{content:'';position:absolute;background:var(--yellow);height:12px;bottom:2px;left:0;right:0;border-radius:50%;z-index:-1;transform:rotate(-1deg)}.hero p{font-size:16px;line-height:1.6;color:var(--muted);max-width:680px}.status{position:absolute;right:30px;top:30px;background:#edf1f3}.tabs{display:flex;padding:6px;margin-bottom:26px;border-radius:17px;box-shadow:4px 5px 0 var(--ink)}.tab{width:50%;border:0;background:transparent;padding:13px;border-radius:11px;font-size:17px;font-weight:bold}.tab[aria-selected=true]{background:var(--blue);color:white}.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);gap:24px;align-items:start}.leftcol{display:grid;gap:23px;position:sticky;top:18px;min-width:0}.section-head{padding:20px 22px;border-bottom:2px dashed #a3a7ae;display:flex;align-items:center;justify-content:space-between;gap:10px}.section-head small{font-size:11px}.bench-body{padding:20px}.toggle-row{display:flex;gap:20px;margin-bottom:18px}.toggle-label{font-size:11px;font-weight:bold;color:var(--muted);display:grid;gap:6px}.segments{display:flex;gap:4px;border:2px solid var(--ink);border-radius:11px;padding:3px;background:#edf0f1}.segments button{border:0;border-radius:7px;padding:6px 13px;background:transparent;font-family:monospace;font-weight:bold}.segments button.active{background:var(--lime)}.pills{display:flex;flex-wrap:wrap;gap:7px;align-items:center}.mini{border:2px solid var(--ink);border-radius:20px;padding:6px 10px;background:white;font-size:11px;font-weight:bold}.fills{margin-bottom:16px}.fills .mini{box-shadow:1px 2px 0 var(--ink)}.array{border:var(--line);border-radius:15px;overflow:hidden;background:#f7f8fa;margin-bottom:15px;box-shadow:3px 4px 0 #a1a7b0}.array:last-child{margin-bottom:0}.array-top{display:flex;justify-content:space-between;align-items:center;background:var(--sky);border-bottom:var(--line);padding:10px 13px}.array:nth-of-type(2) .array-top,.array.b .array-top{background:var(--mint)}.array-top strong{font-size:18px}.array-top span{font-size:11px;max-width:85%;text-align:right}.array textarea{display:block;width:100%;height:116px;resize:vertical;border:0;background:transparent;padding:14px;font-family:Menlo,monospace;font-size:16px;line-height:1.55}.array textarea:focus{outline-offset:-4px}.array-bottom{border-top:1px dashed #a3a7ae;padding:9px 12px}.array-bottom small{font-size:10px;margin-right:4px}.array-bottom .mini{padding:4px 8px;font-size:10px}.array-error{font-size:11px;color:#a02524;padding:0 12px 9px}.deck{background:var(--paper)}.deck-body{padding:20px}.group-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:19px;font-size:17px;font-weight:bold}.group-title{display:flex;align-items:center;gap:14px;margin:22px 0 13px;font-size:11px;font-family:monospace;letter-spacing:1px}.group-title:after{content:'';height:3px;flex:1;background:var(--coral);border-radius:50%;transform:rotate(-1deg)}.op-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.op{border:var(--line);border-radius:17px;padding:13px 10px 12px;text-align:left;background:var(--sky);box-shadow:3px 4px 0 var(--ink);min-height:116px;display:flex;flex-direction:column;gap:6px}.op:nth-child(3n+2){background:var(--mint)}.op:nth-child(3n){background:var(--pink)}.op[data-op=flatten]{background:var(--yellow)}.op.selected{outline:3px solid var(--blue);outline-offset:3px}.op-icon{display:grid;place-items:center;border:2px solid var(--ink);border-radius:50%;width:35px;height:35px;background:white;color:var(--blue);font-family:monospace;font-size:20px;font-weight:bold;margin-bottom:3px}.op strong{font-size:13px;line-height:1.2}.op small{font-size:10px;font-family:monospace;line-height:1.35}.binary-head{border-top:2px dashed #aaa;margin-top:26px;padding-top:22px}.binary-head .pill{background:var(--coral)}details.extra{margin-top:22px}summary{cursor:pointer;font-weight:bold;font-size:13px}.params{background:var(--pink);padding:16px;border:var(--line);border-radius:16px;margin-bottom:20px;scroll-margin-top:20px}.params-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:13px}.params-grid{display:flex;flex-wrap:wrap;gap:12px}.param{display:flex;flex-direction:column;gap:7px;font:11px monospace;flex:1;min-width:110px}.param input,.param select{border:2px solid var(--ink);border-radius:8px;background:white;padding:8px;width:100%;font-size:13px}.param.check{flex-direction:row;align-items:center}.param.check input{width:auto}.hint{font-size:12px;line-height:1.6;color:var(--muted);margin:22px 0 0}.hint b{color:var(--ink)}.output{scroll-margin-top:18px}.output .section-head{padding:16px 20px}.output-actions{display:flex;gap:5px}.output-body{padding:18px}.terminal{background:#0d1720;border:2px solid var(--ink);border-radius:15px;box-shadow:4px 5px 0 var(--coral);color:#d8f57b;overflow:hidden}.terminal-top{padding:11px 14px;border-bottom:1px solid #36434f;display:flex;gap:8px;flex-wrap:wrap;color:#b4c7d7;font-size:10px}.terminal pre{padding:16px;font-size:13px;min-height:100px}.terminal details{border-top:1px solid #36434f;padding:12px 14px;color:#b4c7d7}.terminal details pre{padding:12px 0 0;color:#dce4ee;font-size:11px;min-height:0}.terminal summary{font-size:11px}.terminal.error pre{color:#ffb7b7}.note{font-size:11px;line-height:1.6;color:var(--muted);margin-top:15px}.steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:15px}.steps span{background:#eef3f7;border:1px solid #aab4c0;border-radius:6px;padding:6px;font:10px monospace}.tip-line{font-size:10px;margin-top:15px;color:var(--muted)}.drill-intro{background:var(--ink);color:white;padding:28px 32px;margin-bottom:24px;box-shadow:6px 7px 0 var(--coral)}.drill-intro h2{font-size:32px;max-width:600px;line-height:1.15}.drill-intro p{color:#c7c9cd;font-size:14px;line-height:1.65;max-width:650px;margin:15px 0}.drill-intro .mono{font-size:12px;color:var(--lime)}.drill-list{display:grid;gap:22px}.drill-card{padding:25px 28px;background:var(--sky);display:grid;grid-template-columns:55px 1fr;gap:16px}.drill-card:nth-child(2){background:var(--mint)}.drill-card:nth-child(3){background:var(--pink)}.drill-card:nth-child(4){background:var(--paper)}.drill-card:nth-child(5){background:#decfff}.number{font:bold 30px monospace;color:var(--blue);padding-top:3px}.drill-card h3{font-size:22px;letter-spacing:-.6px}.drill-card p{color:#465562;margin:10px 0 13px;line-height:1.5;font-size:14px}.tags{margin-bottom:17px}.tags .pill{padding:5px 10px;font-size:10px}.action{border:var(--line);border-radius:11px;padding:10px 16px;background:white;font-weight:bold;font-size:12px;box-shadow:2px 3px 0 var(--ink)}.action.dark{background:var(--ink);color:white;box-shadow:none}.reference{margin-top:18px;background:#0d1720;color:#dbe7f0;border-radius:12px;padding:17px;font-size:12px;overflow:auto}.example-shelf{margin-top:25px;padding:22px}.example-shelf>p{margin:8px 0 16px;color:var(--muted);font-size:12px}.example-row{border-top:1px dashed #aaa;padding:13px 0}.example-row:last-child{padding-bottom:0}.example-top{display:flex;gap:10px;align-items:center;justify-content:space-between}.example-top strong{font-size:13px}.example-row p{font-size:12px;line-height:1.5;color:var(--muted);margin:10px 0}.example-row summary{font-size:11px;margin-top:12px}.footer{display:flex;justify-content:space-between;gap:12px;font:10px monospace;color:var(--muted);margin-top:30px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:12px 18px;background:var(--ink);color:white;border-radius:12px;font-size:13px;z-index:10;box-shadow:3px 4px 0 var(--coral)}
-@media(min-width:1100px){.hero:after{content:'[ 3 × 3 ]';position:absolute;right:38px;bottom:37px;background:var(--mint);border:var(--line);border-radius:14px;font:bold 25px monospace;padding:20px;transform:rotate(5deg);box-shadow:4px 4px 0 var(--ink)}}
-@media(max-width:850px){.workspace{grid-template-columns:1fr}.leftcol{position:static}.hero .status{position:static;margin-top:18px;width:max-content}.hero{padding:25px}.output{order:2}.op{min-height:125px}.op strong{font-size:15px}.op small{font-size:11px}.op-icon{width:41px;height:41px;font-size:23px}.footer{flex-direction:column}.drill-card{padding:22px;grid-template-columns:40px 1fr}.page{max-width:700px}}@media(max-width:450px){.page{padding:15px 14px 30px}.brandline>.pill{font-size:9px;padding:6px 8px}.hero{padding:22px 20px}.eyebrow{font-size:10px}h1{font-size:37px;letter-spacing:-1.8px}.hero p{font-size:14px}.section-head{padding:17px}.section-head small{font-size:9px}.bench-body,.deck-body{padding:15px}.op-grid{gap:10px}.op{padding:10px 7px;min-height:124px;border-radius:14px}.op strong{font-size:12px}.op small{font-size:9px}.drill-card h3{font-size:19px}.drill-card{padding:20px 16px;gap:10px}.drill-intro{padding:25px}.drill-intro h2{font-size:27px}.example-top{align-items:flex-start}.example-top .action{padding:7px;white-space:nowrap}.output-actions .mini{padding:5px 7px}.section-head h2{font-size:22px}}
+*{box-sizing:border-box}body{margin:0;background-color:#f3f5f6;background-image:linear-gradient(#dce0e3 1px,transparent 1px),linear-gradient(90deg,#dce0e3 1px,transparent 1px);background-size:32px 32px;color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:15px}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:4px}button{transition:transform .12s,box-shadow .12s}button:hover:not(:disabled){transform:translateY(-2px)}button:active:not(:disabled){transform:translateY(1px)}[hidden]{display:none!important}h1,h2,h3,p{margin:0}h2{font-size:24px;letter-spacing:-.7px}h3{font-size:19px}pre,code,.mono,.pill,.eyebrow{font-family:Menlo,Monaco,Consolas,monospace}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;margin:0}small{color:var(--muted)}.page{max-width:1240px;margin:auto;padding:24px 28px 45px}.brandline{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{font-size:25px;letter-spacing:-1.3px;font-weight:900}.brand b{display:inline-block;color:var(--blue);background:var(--sky);border:var(--line);border-radius:9px;padding:1px 8px;transform:rotate(-5deg);margin-right:8px}.pill{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:2px solid var(--ink);border-radius:30px;font-size:11px;background:white}.dot{width:9px;height:9px;border-radius:100%;background:var(--lime);box-shadow:0 0 0 4px #cff44230}.card{background:white;border:var(--line);border-radius:24px;box-shadow:6px 7px 0 var(--ink);overflow:hidden}.hero{padding:30px 34px;margin-bottom:24px;position:relative}.eyebrow{color:var(--blue);font-size:12px;font-weight:bold;letter-spacing:.7px;display:flex;gap:12px;align-items:center}.eyebrow:before{content:'';width:29px;height:9px;background:var(--coral);border-radius:50%;transform:rotate(-8deg)}h1{font-size:clamp(36px,4.9vw,62px);line-height:1.06;letter-spacing:-2.7px;margin:16px 0 21px;max-width:770px}h1 span{position:relative;isolation:isolate;white-space:nowrap}h1 span:after{content:'';position:absolute;background:var(--yellow);height:12px;bottom:2px;left:0;right:0;border-radius:50%;z-index:-1;transform:rotate(-1deg)}.hero p{font-size:16px;line-height:1.6;color:var(--muted);max-width:680px}.status{position:absolute;right:30px;top:30px;background:#edf1f3}.tabs{display:flex;padding:6px;margin-bottom:26px;border-radius:17px;box-shadow:4px 5px 0 var(--ink)}.tab{width:50%;border:0;background:transparent;padding:13px;border-radius:11px;font-size:17px;font-weight:bold}.tab[aria-selected=true]{background:var(--blue);color:white}.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);gap:24px;align-items:start}.leftcol{display:grid;gap:23px;position:sticky;top:18px;min-width:0}.section-head{padding:20px 22px;border-bottom:2px dashed #a3a7ae;display:flex;align-items:center;justify-content:space-between;gap:10px}.section-head small{font-size:11px}.bench-body{padding:20px}.toggle-row{display:flex;gap:20px;margin-bottom:18px}.toggle-label{font-size:11px;font-weight:bold;color:var(--muted);display:grid;gap:6px}.segments{display:flex;gap:4px;border:2px solid var(--ink);border-radius:11px;padding:3px;background:#edf0f1}.segments button{border:0;border-radius:7px;padding:6px 13px;background:transparent;font-family:monospace;font-weight:bold}.segments button.active{background:var(--lime)}.pills{display:flex;flex-wrap:wrap;gap:7px;align-items:center}.mini{border:2px solid var(--ink);border-radius:20px;padding:6px 10px;background:white;font-size:11px;font-weight:bold}.fills{margin-bottom:16px}.fills .mini{box-shadow:1px 2px 0 var(--ink)}.array{border:var(--line);border-radius:15px;overflow:hidden;background:#f7f8fa;margin-bottom:15px;box-shadow:3px 4px 0 #a1a7b0}.array:last-child{margin-bottom:0}.array-top{display:flex;justify-content:space-between;align-items:center;background:var(--sky);border-bottom:var(--line);padding:10px 13px}.array:nth-of-type(2) .array-top,.array.b .array-top{background:var(--mint)}.array-top strong{font-size:18px}.array-top span{font-size:11px;max-width:85%;text-align:right}.array textarea{display:block;width:100%;height:116px;resize:vertical;border:0;background:transparent;padding:14px;font-family:Menlo,monospace;font-size:16px;line-height:1.55}.array textarea:focus{outline-offset:-4px}.array-bottom{border-top:1px dashed #a3a7ae;padding:9px 12px}.array-bottom small{font-size:10px;margin-right:4px}.array-bottom .mini{padding:4px 8px;font-size:10px}.array-error{font-size:11px;color:#a02524;padding:0 12px 9px}.deck{background:var(--paper)}.deck-body{padding:20px}.group-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:19px;font-size:17px;font-weight:bold}.group-title{display:flex;align-items:center;gap:14px;margin:22px 0 13px;font-size:11px;font-family:monospace;letter-spacing:1px}.group-title:after{content:'';height:3px;flex:1;background:var(--coral);border-radius:50%;transform:rotate(-1deg)}.op-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.op{border:var(--line);border-radius:17px;padding:13px 10px 12px;text-align:left;background:var(--sky);box-shadow:3px 4px 0 var(--ink);min-height:116px;display:flex;flex-direction:column;gap:6px}.op:nth-child(3n+2){background:var(--mint)}.op:nth-child(3n){background:var(--pink)}.op[data-op=flatten]{background:var(--yellow)}.op.selected{outline:3px solid var(--blue);outline-offset:3px}.op-icon{display:grid;place-items:center;border:2px solid var(--ink);border-radius:50%;width:35px;height:35px;background:white;color:var(--blue);font-family:monospace;font-size:20px;font-weight:bold;margin-bottom:3px}.op strong{font-size:13px;line-height:1.2}.op small{font-size:10px;font-family:monospace;line-height:1.35}.binary-head{border-top:2px dashed #aaa;margin-top:26px;padding-top:22px}.binary-head .pill{background:var(--coral)}details.extra{margin-top:22px}summary{cursor:pointer;font-weight:bold;font-size:13px}.params{background:var(--pink);padding:16px;border:var(--line);border-radius:16px;margin-bottom:20px;scroll-margin-top:20px}.params-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:13px}.params-grid{display:flex;flex-wrap:wrap;gap:12px}.param{display:flex;flex-direction:column;gap:7px;font:11px monospace;flex:1;min-width:110px}.param input,.param select{border:2px solid var(--ink);border-radius:8px;background:white;padding:8px;width:100%;font-size:13px}.param.check{flex-direction:row;align-items:center}.param.check input{width:auto}.hint{font-size:12px;line-height:1.6;color:var(--muted);margin:22px 0 0}.hint b{color:var(--ink)}.output{scroll-margin-top:18px}.output .section-head{padding:16px 20px}.output-actions{display:flex;gap:5px}.output-body{padding:18px}.terminal{background:#0d1720;border:2px solid var(--ink);border-radius:15px;box-shadow:4px 5px 0 var(--coral);color:#d8f57b;overflow:hidden}.terminal-top{padding:11px 14px;border-bottom:1px solid #36434f;display:flex;gap:8px;flex-wrap:wrap;color:#b4c7d7;font-size:10px}.terminal pre{padding:16px;font-size:13px;min-height:100px}.terminal details{border-top:1px solid #36434f;padding:12px 14px;color:#b4c7d7}.terminal details pre{padding:12px 0 0;color:#dce4ee;font-size:11px;min-height:0}.terminal summary{font-size:11px}.terminal.error pre{color:#ffb7b7}.note{font-size:11px;line-height:1.6;color:var(--muted);margin-top:15px}.steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:15px}.steps span{background:#eef3f7;border:1px solid #aab4c0;border-radius:6px;padding:6px;font:10px monospace}.tip-line{font-size:10px;margin-top:15px;color:var(--muted)}.pattern-intro{background:var(--ink);color:white;padding:28px 32px;margin-bottom:24px;box-shadow:6px 7px 0 var(--coral)}.pattern-intro h2{font-size:32px;max-width:600px;line-height:1.15}.pattern-intro p{color:#c7c9cd;font-size:14px;line-height:1.65;max-width:650px;margin:15px 0}.pattern-intro .mono{font-size:12px;color:var(--lime)}.pattern-list{display:grid;gap:22px}.pattern-card{padding:25px 28px;background:var(--sky);display:grid;grid-template-columns:55px 1fr;gap:16px}.pattern-card:nth-child(2){background:var(--mint)}.pattern-card:nth-child(3){background:var(--pink)}.pattern-card:nth-child(4){background:var(--paper)}.pattern-card:nth-child(5){background:#decfff}.number{font:bold 30px monospace;color:var(--blue);padding-top:3px}.pattern-card h3{font-size:22px;letter-spacing:-.6px}.pattern-card p{color:#465562;margin:10px 0 13px;line-height:1.5;font-size:14px}.tags{margin-bottom:17px}.tags .pill{padding:5px 10px;font-size:10px}.action{border:var(--line);border-radius:11px;padding:10px 16px;background:white;font-weight:bold;font-size:12px;box-shadow:2px 3px 0 var(--ink)}.action.dark{background:var(--ink);color:white;box-shadow:none}.reference{margin-top:18px;background:#0d1720;color:#dbe7f0;border-radius:12px;padding:17px;font-size:12px;overflow:auto}.example-shelf{margin-top:25px;padding:22px}.example-shelf>p{margin:8px 0 16px;color:var(--muted);font-size:12px}.example-row{border-top:1px dashed #aaa;padding:13px 0}.example-row:last-child{padding-bottom:0}.example-top{display:flex;gap:10px;align-items:center;justify-content:space-between}.example-top strong{font-size:13px}.example-row p{font-size:12px;line-height:1.5;color:var(--muted);margin:10px 0}.example-row summary{font-size:11px;margin-top:12px}.footer{display:flex;justify-content:space-between;gap:12px;font:10px monospace;color:var(--muted);margin-top:30px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:12px 18px;background:var(--ink);color:white;border-radius:12px;font-size:13px;z-index:10;box-shadow:3px 4px 0 var(--coral)}
+/* A live badge replaces the decorative fixed dimensions. */
+.shape-badge{display:inline-flex;margin-top:18px;background:var(--mint);border:var(--line);border-radius:14px;font:bold 22px monospace;padding:14px 18px;transform:rotate(4deg);box-shadow:4px 4px 0 var(--ink);max-width:100%;overflow-wrap:anywhere}
+@media(min-width:1100px){.shape-badge{position:absolute;right:38px;bottom:37px;margin:0;max-width:230px}}
+.history-strip{padding:12px 18px;border-bottom:2px dashed #a3a7ae;background:#f7f9fb}.history-strip small{display:block;margin-bottom:8px;font:10px monospace}.history-strip .mini{font-weight:normal;background:var(--mint)}.history-strip p{font:11px monospace;color:var(--muted)}
+.shape-preview{background:#edf6ff;border:2px solid var(--ink);border-radius:12px;padding:12px;margin-bottom:18px;font:12px/1.5 monospace;min-height:62px;overflow-wrap:anywhere}.shape-preview.invalid{background:#ffe5e7}.shape-preview small{display:block;font:10px/1.5 monospace;margin-top:4px}.shape-explanation{border-top:1px dashed #a3a7ae;margin-top:16px;padding-top:12px}.shape-explanation p{font-size:12px;line-height:1.6;margin-top:9px;color:var(--muted)}
+.output .section-head{flex-wrap:wrap}.output-actions{flex-wrap:wrap}.shortcut{margin-left:auto;font:9px monospace;opacity:.6}.op-icon-row{display:flex;align-items:center;gap:4px;width:100%}.leftcol{gap:23px}
+
+@media(max-width:850px){.workspace{grid-template-columns:1fr}.leftcol{position:static}.hero .status{position:static;margin-top:18px;width:max-content}.hero{padding:25px}.output{order:2}.op{min-height:125px}.op strong{font-size:15px}.op small{font-size:11px}.op-icon{width:41px;height:41px;font-size:23px}.footer{flex-direction:column}.pattern-card{padding:22px;grid-template-columns:40px 1fr}.page{max-width:700px}}@media(max-width:450px){.page{padding:15px 14px 30px}.brandline>.pill{font-size:9px;padding:6px 8px}.hero{padding:22px 20px}.eyebrow{font-size:10px}h1{font-size:37px;letter-spacing:-1.8px}.hero p{font-size:14px}.section-head{padding:17px}.section-head small{font-size:9px}.bench-body,.deck-body{padding:15px}.op-grid{gap:10px}.op{padding:10px 7px;min-height:124px;border-radius:14px}.op strong{font-size:12px}.op small{font-size:9px}.pattern-card h3{font-size:19px}.pattern-card{padding:20px 16px;gap:10px}.pattern-intro{padding:25px}.pattern-intro h2{font-size:27px}.example-top{align-items:flex-start}.example-top .action{padding:7px;white-space:nowrap}.output-actions .mini{padding:5px 7px}.section-head h2{font-size:22px}}
 @media(prefers-reduced-motion:reduce){button{transition:none}}
 </style>
 </head><body><main class="page">
 <div class="brandline"><div class="brand"><b>n</b>numpycal<span style="color:var(--blue)">.</span></div><span class="pill">NumPy + you. That's the stack.</span></div>
-<header class="card hero"><div class="eyebrow">Interactive array playground</div><h1>Make array shapes<br><span>feel obvious.</span></h1><p>Edit an array, tap a NumPy operation, and see result, shape, dtype, and exact expression together.</p><div class="pill status"><span class="dot"></span><span id="status">Ready · instant local engine</span></div></header>
-<nav class="card tabs" role="tablist" aria-label="Practice mode"><button class="tab" id="tab-calculator" role="tab" aria-selected="true" aria-controls="calculator">Calculator</button><button class="tab" id="tab-drills" role="tab" aria-selected="false" aria-controls="drills" tabindex="-1">5 ML drills</button></nav>
+<header class="card hero"><div class="eyebrow">Interactive array playground</div><h1>Make array shapes<br><span>feel obvious.</span></h1><p>Edit an array, tap a NumPy operation, and see result, shape, dtype, and exact expression together.</p><div class="pill status"><span class="dot"></span><span id="status">Ready · instant local engine</span></div><div id="shape-badge" class="shape-badge" aria-label="Array A shape" aria-live="polite">[ 3 × 3 ]</div></header>
+<nav class="card tabs" role="tablist" aria-label="Practice mode"><button class="tab" id="tab-calculator" role="tab" aria-selected="true" aria-controls="calculator">Calculator</button><button class="tab" id="tab-patterns" role="tab" aria-selected="false" aria-controls="patterns" tabindex="-1">5 Patterns</button></nav>
 <section id="calculator" role="tabpanel" aria-labelledby="tab-calculator">
 <div class="workspace"><div class="leftcol">
 <section class="card bench"><div class="section-head"><h2>Array bench</h2><small class="mono">A → operation → result</small></div><div class="bench-body">
@@ -24,8 +30,9 @@
 4, 5, 6
 7, 8, {{10 if name=='A' else 9}}</textarea><div class="array-error" id="error{{name}}" aria-live="polite"></div><div class="array-bottom pills"><small class="mono">{{name}} examples</small>{% for preset in ['1D','3×1','2×2','3×3'] %}<button class="mini" data-preset="{{preset}}" data-array="{{name}}">{{preset}}</button>{% endfor %}</div></div>{% endfor %}
 <p class="tip-line">Commas + newlines, or nested lists. Tensors welcome, too.</p></div></section>
-<section class="card output" id="output" aria-live="polite"><div class="section-head"><h2>Output</h2><div class="output-actions"><button class="mini" id="copy" disabled>Copy</button><button class="mini" id="useA" disabled>Use as A</button><button class="mini" id="useB" disabled>Use as B</button></div></div><div class="output-body"><div class="terminal" id="terminal"><div class="terminal-top"><span id="result-op">tap an operation</span><span id="result-meta"></span></div><pre id="result">Your result will land here.</pre><details id="expression-box" open><summary>Exact NumPy expression</summary><pre id="expression">np.operation(A)</pre></details></div><div id="steps" class="steps"></div><p id="note" class="note"></p></div></section>
+<section class="card output" id="output" aria-live="polite"><div class="history-strip"><small>RECENT BLOCKS · replay saved inputs</small><div id="history" class="pills"><p>Your last 5 runs will land here.</p></div></div><div class="section-head"><h2>Output</h2><div class="output-actions"><button class="mini" id="copyPython" title="Copy runnable Python (c)" disabled>Copy as Python</button><button class="mini" id="copyResult" disabled>Copy result</button><button class="mini" id="useA" disabled>Use as A</button><button class="mini" id="useB" disabled>Use as B</button></div></div><div class="output-body"><div class="terminal" id="terminal"><div class="terminal-top"><span id="result-op">tap an operation</span><span id="result-meta"></span></div><pre id="result">Your result will land here.</pre><details id="expression-box" open><summary>Exact NumPy expression</summary><pre id="expression">np.operation(A)</pre></details></div><div id="steps" class="steps"></div><p id="note" class="note"></p><details class="shape-explanation" id="explain-shape"><summary>Explain shape</summary><p id="shape-explanation">Run a block to see why its output has that shape.</p></details></div></section>
 </div><section class="card deck"><div class="section-head"><h2>Operation deck</h2><small class="mono">tap to run</small></div><div class="deck-body">
+<div class="shape-preview" id="shape-preview" aria-live="polite"><div id="shape-hint">Shape first. Hover or focus a block to peek.</div><small>1–9: quick-run · c: copy Python · u: use as A</small></div>
 <div class="params" id="params" hidden><div class="params-head"><strong id="param-title">Parameters</strong><button class="mini" id="rerun">Run again ↗</button></div><div class="params-grid">
 <label class="param" data-param="axis">axis<select id="axis"><option>None</option><option>0</option><option>1</option><option>-1</option><option value="-2,-1">last two axes</option></select></label>
 <label class="param check" data-param="keepdims"><input type="checkbox" id="keepdims">keepdims</label>
@@ -36,52 +43,283 @@
 <div class="group-heading">One-array operations<span class="pill" style="background:var(--yellow)">A only</span></div>
 {% for group in groups %}
 {% if group.title=='COMBINE + LINALG' %}<div class="group-heading binary-head">Two-array operations<span class="pill">A + B</span></div>{% endif %}
-{% if group.title=='EXTRA LEGO BLOCKS' %}<details class="extra"><summary>More lego blocks · compose the drills</summary>{% endif %}
+{% if group.title=='EXTRA LEGO BLOCKS' %}<details class="extra"><summary>More lego blocks · compose the patterns</summary>{% endif %}
 <div class="group-title">{{group.title}}</div><div class="op-grid">{% for op in group.ops %}<button class="op" data-op="{{op.id}}" aria-label="{{op.label}}: {{op.hint}}"><span class="op-icon" aria-hidden="true">{{op.icon}}</span><strong>{{op.label}}</strong><small>{{op.hint}}</small></button>{% endfor %}</div>
 {% if group.title=='EXTRA LEGO BLOCKS' %}</details>{% endif %}
 {% endfor %}
 <p class="hint"><b>Shape first:</b> predict it before you tap it.</p></div></section></div>
 <section class="card example-shelf"><h2>Pattern Library</h2><p>Small blocks. Useful models. All yours to explore.</p>{% for e in examples %}<div class="example-row"><div class="example-top"><strong>{{e.title}}</strong><button class="action" data-example="{{e.id}}">Load + run ↗</button></div><details><summary>Reveal reference</summary><p>{{e.note}}</p><pre class="reference">{{e.code}}</pre></details></div>{% endfor %}</section>
 </section>
-<section id="drills" role="tabpanel" aria-labelledby="tab-drills" hidden><header class="card drill-intro"><h2>Five patterns. Plenty of possibilities.</h2><p>Each drill is intentionally small. Load its fixture into the calculator, predict the shape, then run the reference solution when you are ready.</p><div class="mono">5 drills · 0 hidden dependencies</div></header><div class="drill-list">
-{% for d in drills %}<article class="card drill-card"><div class="number">0{{loop.index}}</div><div><h3>{{d.title}}</h3><p>{{d.description}}</p><div class="tags pills">{% for tag in d.tags %}<span class="pill">{{tag}}</span>{% endfor %}</div><div class="pills"><button class="action" data-reveal="{{d.id}}" aria-expanded="false" aria-controls="ref-{{d.id}}">Reveal</button><button class="action dark" data-drill="{{d.id}}">Load + run ↗</button></div><div id="ref-{{d.id}}" hidden><pre class="reference">{{d.code}}</pre><p>{{d.note}}</p><button class="mini" data-load="{{d.id}}">Load fixture only · predict first</button></div></div></article>{% endfor %}</div></section>
+<section id="patterns" role="tabpanel" aria-labelledby="tab-patterns" hidden><header class="card pattern-intro"><h2>Five patterns. Plenty of possibilities.</h2><p>Load a tiny fixture. Predict its shape. Run the blocks and see what clicks.</p><div class="mono">5 patterns · 0 hidden dependencies</div></header><div class="pattern-list">
+{% for d in patterns %}<article class="card pattern-card"><div class="number">0{{loop.index}}</div><div><h3>{{d.title}}</h3><p>{{d.description}}</p><div class="tags pills">{% for tag in d.tags %}<span class="pill">{{tag}}</span>{% endfor %}</div><div class="pills"><button class="action" data-reveal="{{d.id}}" aria-expanded="false" aria-controls="ref-{{d.id}}">Reveal</button><button class="action dark" data-pattern="{{d.id}}">Load + run ↗</button></div><div id="ref-{{d.id}}" hidden><pre class="reference">{{d.code}}</pre><p>{{d.note}}</p><button class="mini" data-load="{{d.id}}">Load fixture only · predict first</button></div></div></article>{% endfor %}</div></section>
 <footer class="footer"><span>No cloud, no tracking. Just you and NumPy.</span><span>100% local · NumPy + Flask · no accounts, no cloud</span></footer>
 </main><div class="toast" id="toast" role="status" hidden></div>
 <script>
 'use strict';
-const OPS={{operations|tojson}}, DRILLS={{drills|tojson}};
+const OPS={{operations|tojson}}, PATTERNS={{patterns|tojson}};
 const $=id=>document.getElementById(id);
-const modes={A:'2',B:'2'}, parsed={}, timers={}, revisions={A:0,B:0};
-let activeOp=null,lastResult=null,runRevision=0,toastTimer;
-function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,2600)}
-// The only transport is loopback XHR. No external requests or fetch API.
-function localPost(path,data){return new Promise((resolve,reject)=>{const xhr=new XMLHttpRequest();xhr.open('POST',path);xhr.setRequestHeader('Content-Type','application/json');xhr.timeout=15000;xhr.onload=()=>{try{const body=JSON.parse(xhr.responseText);if(xhr.status>=400)reject(new Error(body.error||'Calculation failed.'));else resolve(body)}catch(e){reject(new Error('Unexpected response from the local engine.'))}};xhr.onerror=()=>reject(new Error('Local engine stopped. Run python app.py.'));xhr.ontimeout=()=>reject(new Error('Calculation timed out. Try smaller arrays.'));xhr.send(JSON.stringify(data))})}
-function tab(name){for(const id of ['calculator','drills']){$(id).hidden=id!==name;$('tab-'+id).setAttribute('aria-selected',id===name);$('tab-'+id).tabIndex=id===name?0:-1}}
-$('tab-calculator').onclick=()=>tab('calculator');$('tab-drills').onclick=()=>tab('drills');
-document.querySelectorAll('[role=tab]').forEach(el=>el.onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?'calculator':e.key==='End'?'drills':el.id==='tab-calculator'?'drills':'calculator';tab(next);$('tab-'+next).focus()}});
-function syncMode(name){document.querySelectorAll('[data-shape="'+name+'"]').forEach(b=>{const on=b.dataset.dim===modes[name];b.classList.toggle('active',on);b.setAttribute('aria-pressed',on)})}
-function literalText(data){if(!Array.isArray(data))return JSON.stringify(data);if(!data.some(Array.isArray))return data.join(', ');if(!data.some(row=>row.some(Array.isArray)))return data.map(row=>row.join(', ')).join('\n');return JSON.stringify(data)}
-function setArray(name,data,ndim){if(ndim===undefined){ndim=0;let x=data;while(Array.isArray(x)){ndim++;x=x[0]}}modes[name]=ndim===1?'1':ndim===2?'2':'auto';$('array'+name).value=ndim===0?JSON.stringify(data):literalText(data);syncMode(name);validate(name)}
-async function validate(name){clearTimeout(timers[name]);const revision=++revisions[name];try{const data=await localPost('/api/parse',{text:$('array'+name).value,mode:modes[name]});if(revision!==revisions[name])return;parsed[name]=data;$('shape'+name).textContent='shape '+data.shape+' · '+data.dtype;$('error'+name).textContent='';$('array'+name).setAttribute('aria-invalid','false')}catch(e){if(revision!==revisions[name])return;parsed[name]=null;$('shape'+name).textContent='check input';$('error'+name).textContent=e.message;$('array'+name).setAttribute('aria-invalid','true')}}
-function stale(){runRevision++;if(lastResult){$('note').textContent='Inputs changed. Tap an operation to calculate again.';lastResult=null;for(const id of ['copy','useA','useB'])$(id).disabled=true}}
-for(const name of ['A','B']){$('array'+name).addEventListener('input',()=>{stale();revisions[name]++;timers[name]&&clearTimeout(timers[name]);timers[name]=setTimeout(()=>validate(name),180)});validate(name)}
-document.querySelectorAll('[data-shape]').forEach(btn=>btn.onclick=()=>{const name=btn.dataset.shape;modes[name]=btn.dataset.dim;syncMode(name);stale();validate(name)});
+const modes={A:'2',B:'2'}, timers={}, revisions={A:0,B:0};
+const outputButtons=['copyPython','copyResult','useA','useB'];
+const history=[];
+let activeOp=null, previewOp=null, lastResult=null, runRevision=0, previewRevision=0;
+let toastTimer, previewTimer;
+function toast(message){
+  $('toast').textContent=message; $('toast').hidden=false;
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>$('toast').hidden=true,2600);
+}
+// Loopback transport only. No remote requests or external assets.
+function localPost(path,data){
+  return new Promise((resolve,reject)=>{
+    const xhr=new XMLHttpRequest(); xhr.open('POST',path);
+    xhr.setRequestHeader('Content-Type','application/json'); xhr.timeout=15000;
+    xhr.onload=()=>{
+      try{const body=JSON.parse(xhr.responseText); if(xhr.status>=400)reject(new Error(body.error||'Calculation failed.')); else resolve(body)}
+      catch(e){reject(new Error('Unexpected response from the local engine.'))}
+    };
+    xhr.onerror=()=>reject(new Error('Local engine stopped. Run python app.py.'));
+    xhr.ontimeout=()=>reject(new Error('Calculation timed out. Try smaller arrays.'));
+    xhr.send(JSON.stringify(data));
+  });
+}
+function tab(name){
+  for(const id of ['calculator','patterns']){
+    $(id).hidden=id!==name; $('tab-'+id).setAttribute('aria-selected',id===name);
+    $('tab-'+id).tabIndex=id===name?0:-1;
+  }
+}
+$('tab-calculator').onclick=()=>tab('calculator'); $('tab-patterns').onclick=()=>tab('patterns');
+document.querySelectorAll('[role=tab]').forEach(el=>el.onkeydown=e=>{
+  if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){
+    e.preventDefault();
+    const next=e.key==='Home'?'calculator':e.key==='End'?'patterns':el.id==='tab-calculator'?'patterns':'calculator';
+    tab(next); $('tab-'+next).focus();
+  }
+});
+function syncMode(name){
+  document.querySelectorAll('[data-shape="'+name+'"]').forEach(b=>{
+    const on=b.dataset.dim===modes[name]; b.classList.toggle('active',on); b.setAttribute('aria-pressed',on);
+  });
+}
+function literalText(data){
+  if(!Array.isArray(data))return JSON.stringify(data);
+  if(!data.some(Array.isArray))return data.join(', ');
+  if(!data.some(row=>row.some(Array.isArray)))return data.map(row=>row.join(', ')).join('\n');
+  return JSON.stringify(data);
+}
+function setArray(name,data,ndim){
+  if(ndim===undefined){ndim=0;let x=data;while(Array.isArray(x)){ndim++;x=x[0]}}
+  modes[name]=ndim===1?'1':ndim===2?'2':'auto';
+  $('array'+name).value=ndim===0?JSON.stringify(data):literalText(data);
+  syncMode(name); validate(name);
+}
+async function validate(name){
+  clearTimeout(timers[name]); const revision=++revisions[name];
+  try{
+    const data=await localPost('/api/parse',{text:$('array'+name).value,mode:modes[name]});
+    if(revision!==revisions[name])return;
+    $('shape'+name).textContent='shape '+data.shape+' · '+data.dtype;
+    $('error'+name).textContent=''; $('array'+name).setAttribute('aria-invalid','false');
+    if(name==='A')$('shape-badge').textContent='[ '+(data.dimensions.length?data.dimensions.join(' × '):'scalar')+' ]';
+  }catch(e){
+    if(revision!==revisions[name])return;
+    $('shape'+name).textContent='check input'; $('error'+name).textContent=e.message;
+    $('array'+name).setAttribute('aria-invalid','true');
+    if(name==='A')$('shape-badge').textContent='[ ? ]';
+  }
+  schedulePreview();
+}
+function stale(){
+  runRevision++; previewRevision++;
+  if(lastResult){$('note').textContent='Inputs changed. Tap a block to calculate again.';lastResult=null}
+  outputButtons.forEach(id=>$(id).disabled=true);
+  $('status').textContent='Ready · instant local engine';
+}
+function parameters(){
+  const p={}; for(const name of ['axis','reshape_to','clip_min','clip_max','padding','stride'])p[name]=$(name).value;
+  p.keepdims=$('keepdims').checked; return p;
+}
+function effectiveParams(op,defaults=true){
+  const p=parameters();
+  if(defaults&&activeOp!==op){
+    if(op==='standardize')p.axis='0';
+    if(op==='softmax')p.axis='-1';
+    if(op==='expand_dims'&&p.axis==='None')p.axis='0';
+  }
+  return p;
+}
+function setParams(p){
+  for(const [key,value] of Object.entries(p||{})){
+    if(!$(key))continue;
+    if($(key).type==='checkbox')$(key).checked=value===true;
+    else $(key).value=value;
+  }
+}
+function snapshot(op,params=parameters()){
+  return {operation:op,A:$('arrayA').value,B:$('arrayB').value,modeA:modes.A,modeB:modes.B,params};
+}
+function selectOp(op,defaults=true){
+  const p=effectiveParams(op,defaults); activeOp=op; previewOp=op;
+  const spec=OPS[op];
+  document.querySelectorAll('[data-op]').forEach(b=>b.classList.toggle('selected',b.dataset.op===op));
+  if(!spec){$('params').hidden=true;return}
+  setParams(p); $('params').hidden=!spec.params.length;
+  $('param-title').textContent=spec.label+' · parameters';
+  document.querySelectorAll('[data-param]').forEach(e=>e.hidden=!spec.params.includes(e.dataset.param));
+}
+function schedulePreview(op=previewOp||activeOp){
+  clearTimeout(previewTimer); const revision=++previewRevision;
+  if(!OPS[op]){
+    $('shape-hint').textContent='Shape first. Hover or focus a block to peek.';
+    $('shape-preview').classList.remove('invalid'); return;
+  }
+  previewOp=op;
+  const payload=snapshot(op,effectiveParams(op));
+  $('shape-hint').textContent='Checking the axes…';
+  previewTimer=setTimeout(async()=>{
+    try{
+      const data=await localPost('/api/predict',payload);
+      if(revision!==previewRevision)return;
+      $('shape-hint').textContent=data.hint; $('shape-preview').classList.remove('invalid');
+      const button=document.querySelector('[data-op="'+op+'"]');
+      if(button)button.title=data.hint+'\n'+data.explanation;
+    }catch(e){
+      if(revision!==previewRevision)return;
+      $('shape-hint').textContent=e.message; $('shape-preview').classList.add('invalid');
+    }
+  },100);
+}
+function addHistory(entry,data){
+  history.unshift({entry:JSON.parse(JSON.stringify(entry)),label:OPS[data.operation]?.label||data.operation,shape:data.shape});
+  history.splice(5); $('history').replaceChildren();
+  for(const saved of history){
+    const chip=document.createElement('button'); chip.className='mini';
+    chip.textContent=saved.label+' '+saved.shape;
+    chip.title='Restore this run’s inputs and parameters, then rerun';
+    chip.onclick=()=>replay(saved.entry); $('history').append(chip);
+  }
+}
+async function replay(entry){
+  tab('calculator'); stale();
+  if(entry.kind==='example'){await loadAndRun('example',entry.id);return}
+  const p=entry.payload;
+  for(const name of ['A','B']){
+    $('array'+name).value=p[name]; modes[name]=p['mode'+name]; syncMode(name); validate(name);
+  }
+  setParams(p.params); selectOp(p.operation,false); await run(p.operation,false);
+}
+function showResult(data,entry){
+  lastResult=data; $('terminal').classList.remove('error'); $('result').textContent=data.result;
+  $('result-op').textContent=data.operation; $('result-meta').textContent=' · shape '+data.shape+' · '+data.dtype;
+  $('expression').textContent=data.expression; $('note').textContent=data.note||'';
+  $('shape-explanation').textContent=data.explanation; $('steps').replaceChildren();
+  for(const step of data.steps||[]){const el=document.createElement('span');el.textContent=step;$('steps').append(el)}
+  outputButtons.forEach(id=>$(id).disabled=false);
+  $('status').textContent='Ready · instant local engine'; addHistory(entry,data);
+}
+function showError(error){
+  lastResult=null; $('terminal').classList.add('error'); $('result').textContent=error.message;
+  $('result-op').textContent='A small shape detour'; $('result-meta').textContent='';
+  $('expression').textContent='Check inputs and try again.'; $('steps').replaceChildren();
+  $('note').textContent='A small edit, then another go.';
+  $('shape-explanation').textContent=error.message;
+  outputButtons.forEach(id=>$(id).disabled=true); $('status').textContent='Ready · instant local engine';
+}
+async function run(op,defaults=true){
+  selectOp(op,defaults); schedulePreview(op);
+  const revision=++runRevision, payload=snapshot(op);
+  outputButtons.forEach(id=>$(id).disabled=true); lastResult=null;
+  $('status').textContent='Calculating locally…';
+  try{
+    const data=await localPost('/api/run',payload);
+    if(revision!==runRevision)return;
+    showResult(data,{kind:'operation',payload});
+  }catch(e){if(revision===runRevision)showError(e)}
+}
+const opButtons=[...document.querySelectorAll('[data-op]')];
+opButtons.forEach((btn,index)=>{
+  btn.addEventListener('mouseenter',()=>schedulePreview(btn.dataset.op));
+  btn.addEventListener('focus',()=>schedulePreview(btn.dataset.op));
+  btn.onclick=()=>{run(btn.dataset.op);if(window.innerWidth<=850)$('output').scrollIntoView({behavior:'smooth',block:'start'})};
+  if(index<9){
+    const hint=document.createElement('span');hint.className='shortcut';hint.textContent=String(index+1);hint.setAttribute('aria-hidden','true');
+    const row=document.createElement('span');row.className='op-icon-row';row.append(btn.querySelector('.op-icon'),hint);btn.prepend(row);
+    btn.setAttribute('aria-keyshortcuts',String(index+1));
+  }
+});
+$('rerun').onclick=()=>activeOp&&run(activeOp,false);
+document.querySelectorAll('.params input,.params select').forEach(el=>{
+  el.addEventListener('input',()=>{stale();schedulePreview(activeOp)});
+  el.addEventListener('change',()=>activeOp&&run(activeOp,false));
+});
+for(const name of ['A','B']){
+  $('array'+name).addEventListener('input',()=>{
+    stale(); revisions[name]++; clearTimeout(timers[name]);
+    if(name==='A')$('shape-badge').textContent='[ … ]';
+    schedulePreview(); timers[name]=setTimeout(()=>validate(name),180);
+  });
+  $('use'+name).onclick=()=>{
+    if(!lastResult)return; const data=lastResult;
+    stale(); setArray(name,data.data,data.ndim); toast('Result → '+name+'. Next block?');
+  };
+}
+document.querySelectorAll('[data-shape]').forEach(btn=>btn.onclick=()=>{
+  const name=btn.dataset.shape; modes[name]=btn.dataset.dim; syncMode(name); stale(); validate(name);
+});
 const presets={'1D':[1,2,3],'3×1':[[1],[2],[3]],'2×2':[[1,2],[3,4]],'3×3':[[1,2,3],[4,5,6],[7,8,9]]};
 document.querySelectorAll('[data-preset]').forEach(btn=>btn.onclick=()=>{stale();setArray(btn.dataset.array,presets[btn.dataset.preset])});
-document.querySelectorAll('[data-fill]').forEach(btn=>btn.onclick=()=>{let values;const one=modes.A==='1';switch(btn.dataset.fill){case'arange':values=one?[1,2,3,4,5,6,7,8,9]:[[1,2,3],[4,5,6],[7,8,9]];break;case'identity':values=[[1,0,0],[0,1,0],[0,0,1]];break;case'zeros':values=one?[0,0,0]:[[0,0,0],[0,0,0],[0,0,0]];break;default:values=Array.from({length:3},()=>Array.from({length:3},()=>Math.round((Math.random()*6-3)*10)/10));if(one)values=values.flat()}stale();setArray('A',values)});
-function parameters(){const p={};for(const name of ['axis','reshape_to','clip_min','clip_max','padding','stride'])p[name]=$(name).value;p.keepdims=$('keepdims').checked;return p}
-function selectOp(op,defaults=true){const changed=activeOp!==op;activeOp=op;const spec=OPS[op];document.querySelectorAll('[data-op]').forEach(b=>b.classList.toggle('selected',b.dataset.op===op));if(!spec){$('params').hidden=true;return}if(defaults&&changed){if(op==='standardize')$('axis').value='0';if(op==='softmax')$('axis').value='-1';if(op==='expand_dims'&&$('axis').value==='None')$('axis').value='0'}$('params').hidden=!spec.params.length;$('param-title').textContent=spec.label+' · parameters';document.querySelectorAll('[data-param]').forEach(e=>e.hidden=!spec.params.includes(e.dataset.param))}
-function showResult(data){lastResult=data;$('terminal').classList.remove('error');$('result').textContent=data.result;$('result-op').textContent=data.operation;$('result-meta').textContent=' · shape '+data.shape+' · '+data.dtype;$('expression').textContent=data.expression;$('note').textContent=data.note||'';$('steps').replaceChildren();for(const step of data.steps||[]){const el=document.createElement('span');el.textContent=step;$('steps').append(el)}for(const id of ['copy','useA','useB'])$(id).disabled=false;$('status').textContent='Ready · instant local engine'}
-function showError(error){lastResult=null;$('terminal').classList.add('error');$('result').textContent=error.message;$('result-op').textContent='A small shape detour';$('result-meta').textContent='';$('expression').textContent='Check inputs and try again.';$('steps').replaceChildren();$('note').textContent='Hint: broadcasting matches dimensions from the right. Matmul needs matching inner dimensions.';for(const id of ['copy','useA','useB'])$(id).disabled=true;$('status').textContent='Ready · check inputs'}
-async function run(op){selectOp(op);const revision=++runRevision;$('status').textContent='Calculating locally…';try{const data=await localPost('/api/run',{operation:op,A:$('arrayA').value,B:$('arrayB').value,modeA:modes.A,modeB:modes.B,params:parameters()});if(revision!==runRevision)return;showResult(data)}catch(e){if(revision===runRevision)showError(e)}}
-document.querySelectorAll('[data-op]').forEach(btn=>btn.onclick=()=>{run(btn.dataset.op);if(window.innerWidth<=850)$('output').scrollIntoView({behavior:'smooth',block:'start'})});
-$('rerun').onclick=()=>activeOp&&run(activeOp);document.querySelectorAll('.params input,.params select').forEach(el=>el.addEventListener('change',()=>activeOp&&run(activeOp)));
-for(const name of ['A','B'])$('use'+name).onclick=()=>{if(!lastResult)return;const data=lastResult;stale();setArray(name,data.data,data.ndim);toast('Result → '+name+'. Next block?')};
-$('copy').onclick=async()=>{if(!lastResult)return;const text=lastResult.expression+'\n\n# shape '+lastResult.shape+' · '+lastResult.dtype+'\n'+lastResult.result;try{await navigator.clipboard.writeText(text);toast('Copied result + expression.')}catch(e){const t=document.createElement('textarea');t.value=text;document.body.append(t);t.select();const ok=document.execCommand('copy');t.remove();toast(ok?'Copied.':'Copy unavailable. Select the output text.')}};
-document.querySelectorAll('[data-reveal]').forEach(btn=>btn.onclick=()=>{const el=$('ref-'+btn.dataset.reveal);el.hidden=!el.hidden;btn.textContent=el.hidden?'Reveal':'Hide';btn.setAttribute('aria-expanded',!el.hidden)});
+document.querySelectorAll('[data-fill]').forEach(btn=>btn.onclick=()=>{
+  let values;const one=modes.A==='1';
+  switch(btn.dataset.fill){
+    case 'arange':values=one?[1,2,3,4,5,6,7,8,9]:[[1,2,3],[4,5,6],[7,8,9]];break;
+    case 'identity':values=[[1,0,0],[0,1,0],[0,0,1]];break;
+    case 'zeros':values=one?[0,0,0]:[[0,0,0],[0,0,0],[0,0,0]];break;
+    default:values=Array.from({length:3},()=>Array.from({length:3},()=>Math.round((Math.random()*6-3)*10)/10));if(one)values=values.flat();
+  }
+  stale();setArray('A',values);
+});
+async function copyOutput(asPython){
+  if(!lastResult)return;
+  const text=asPython?lastResult.python_code:lastResult.literal;
+  try{await navigator.clipboard.writeText(text);toast(asPython?'Python copied. Shapes included.':'Result copied. Full precision.')}
+  catch(e){
+    const previous=document.activeElement,t=document.createElement('textarea');
+    t.value=text;t.style.position='fixed';t.style.left='-9999px';document.body.append(t);t.select();
+    const ok=document.execCommand('copy');t.remove();previous?.focus();
+    toast(ok?'Copied.':'Copy unavailable. Select the output text.');
+  }
+}
+$('copyPython').onclick=()=>copyOutput(true); $('copyResult').onclick=()=>copyOutput(false);
+$('copyPython').setAttribute('aria-keyshortcuts','c'); $('useA').setAttribute('aria-keyshortcuts','u');
+document.addEventListener('keydown',e=>{
+  if(e.defaultPrevented||e.ctrlKey||e.metaKey||e.altKey||e.repeat||e.isComposing||$('calculator').hidden)return;
+  if(e.target.closest('input,textarea,select,[contenteditable]:not([contenteditable="false"])'))return;
+  if(/^[1-9]$/.test(e.key)){e.preventDefault();opButtons[Number(e.key)-1].click()}
+  else if(e.key.toLowerCase()==='c'){e.preventDefault();$('copyPython').click()}
+  else if(e.key.toLowerCase()==='u'){e.preventDefault();$('useA').click()}
+});
+document.querySelectorAll('[data-reveal]').forEach(btn=>btn.onclick=()=>{
+  const el=$('ref-'+btn.dataset.reveal);el.hidden=!el.hidden;btn.textContent=el.hidden?'Reveal':'Hide';btn.setAttribute('aria-expanded',!el.hidden);
+});
 function loadFixture(fixture){setArray('A',fixture.A);setArray('B',fixture.B);tab('calculator')}
-function setParams(p){for(const [k,v]of Object.entries(p||{}))if($(k))$(k).value=v}
-async function loadAndRun(kind,id){const revision=++runRevision;$('status').textContent='Loading local fixture…';try{const data=await localPost('/api/'+kind,{id});if(revision!==runRevision)return;loadFixture(data.fixture);setParams(data.params);selectOp(kind==='drill'?id:null,false);showResult(data);$('output').scrollIntoView({behavior:'smooth',block:'center'})}catch(e){if(revision===runRevision){showError(e);tab('calculator')}}}
-document.querySelectorAll('[data-drill]').forEach(btn=>btn.onclick=()=>loadAndRun('drill',btn.dataset.drill));document.querySelectorAll('[data-example]').forEach(btn=>btn.onclick=()=>loadAndRun('example',btn.dataset.example));
-document.querySelectorAll('[data-load]').forEach(btn=>btn.onclick=()=>{stale();const d=DRILLS.find(d=>d.id===btn.dataset.load);loadFixture(d);setParams(d.params);selectOp(d.id,false);$('output').scrollIntoView({behavior:'smooth'});toast('Fixture loaded. Predict the shape, then tap '+OPS[d.id].label+'.')});
+async function loadAndRun(kind,id){
+  const revision=++runRevision; $('status').textContent='Loading local fixture…';
+  outputButtons.forEach(id=>$(id).disabled=true); lastResult=null;
+  try{
+    const data=await localPost('/api/'+kind,{id});if(revision!==runRevision)return;
+    loadFixture(data.fixture);
+    // Fixtures start with their own parameter defaults, independent of prior runs.
+    setParams({axis:'None',keepdims:false,reshape_to:'1,9',clip_min:2,clip_max:8,padding:0,stride:1,...data.params});
+    selectOp(kind==='pattern'?id:null,false);
+    showResult(data,kind==='example'?{kind,id}:{kind:'operation',payload:snapshot(id)});
+    schedulePreview(); $('output').scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(e){if(revision===runRevision){showError(e);tab('calculator')}}
+}
+document.querySelectorAll('[data-pattern]').forEach(btn=>btn.onclick=()=>loadAndRun('pattern',btn.dataset.pattern));
+document.querySelectorAll('[data-example]').forEach(btn=>btn.onclick=()=>loadAndRun('example',btn.dataset.example));
+document.querySelectorAll('[data-load]').forEach(btn=>btn.onclick=()=>{
+  stale(); const p=PATTERNS.find(p=>p.id===btn.dataset.load); loadFixture(p);
+  setParams({axis:'None',keepdims:false,padding:0,stride:1,...p.params});selectOp(p.id,false);schedulePreview();
+  $('output').scrollIntoView({behavior:'smooth'});toast('Fixture loaded. Predict, then tap '+OPS[p.id].label+'.');
+});
+for(const name of ['A','B'])validate(name);
 </script></body></html>
